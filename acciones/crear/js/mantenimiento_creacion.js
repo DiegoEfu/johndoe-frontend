@@ -47,5 +47,6 @@ $('form').submit((e) => {
     });
   });
 
+  alert("Creado exitosamente.")
   window.location.replace("/");
 });

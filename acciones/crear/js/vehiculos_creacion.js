@@ -1,4 +1,5 @@
 let personas_registradas;
+let vehiculos_registrados;
 
 $(document).ready(() => {
     $.ajax({
@@ -14,29 +15,53 @@ $(document).ready(() => {
     });
 });
 
+$(document).ready(() => {
+  $.ajax({
+      url: 'http://127.0.0.1:8000/api/consultar/vehiculos/',
+      type: 'GET',
+      success: function ({res}, textStatus, xhr) {
+          vehiculos_registrados = res;
+      },
+      error: function (xhr, textStatus, errorThrown) {
+          console.log(xhr);
+      },
+      async: true
+  });
+});
+
+
 const consigue_persona = (tipo, cedula) => {
-  console.log(personas_registradas);
   return personas_registradas.some((p) => p.tipo === tipo && p.cedula === cedula);
+};
+
+const consigue_vehiculo = (placa) => {
+  return vehiculos_registrados.some((p) => p.placa === placa);
 };
 
 $('form').submit((e) => {
   e.preventDefault();
 
-  if(consigue_persona($('#tipo').val(), $('#cedula').val())){
-    alert("Ya existe una persona registrada con esa cédula.");
+  if(!consigue_persona($('#tipo').val(), $('#cedula').val())){
+    alert("No existe una persona registrada con esa cédula.");
+    return false;
+  }
+
+  if(consigue_vehiculo($('#placa').val())){
+    alert("Ya existe un vehículo registrado con esa placa.");
     return false;
   }
 
   $(document).ready(() => {
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/crear/persona/',
+        url: 'http://127.0.0.1:8000/api/crear/vehiculo/',
         type: 'POST',
         data: {
           'tipo': $('#tipo').val(),
           'cedula': $('#cedula').val(),
-          'genero': $('#genero').val(),
-          'nombre': $('#nombre').val(),
-          'apellido': $('#apellido').val(),
+          'placa': $('#placa').val(),
+          'marca': $('#marca').val(),
+          'modelo': $('#modelo').val(),
+          'color': $('#color').val(),
         },
         success: function (res, textStatus, xhr) {
             console.log(res);
