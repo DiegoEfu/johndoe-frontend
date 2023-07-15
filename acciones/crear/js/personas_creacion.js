@@ -2,7 +2,7 @@ let personas_registradas;
 
 $(document).ready(() => {
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/consultar/personas/',
+        url: 'https://inverdata.pythonanywhere.com/api/consultar/personas/',
         type: 'GET',
         success: function ({res}, textStatus, xhr) {
             personas_registradas = res;
@@ -22,14 +22,17 @@ const consigue_persona = (tipo, cedula) => {
 $('form').submit((e) => {
   e.preventDefault();
 
-  if(consigue_persona($('#tipo').val(), $('#cedula').val())){
+  if(personas_registradas && consigue_persona($('#tipo').val(), $('#cedula').val())){
     alert("Ya existe una persona registrada con esa cédula.");
+    return false;
+  } else if(!personas_registradas){
+    alert("NO HAY PERSONAS REGISTRADAS. REGISTRE AL DUEÑO ANTES DE REGISTRAR SU VEHÍCULO.");
     return false;
   }
 
   $(document).ready(() => {
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/crear/persona/',
+        url: 'https://inverdata.pythonanywhere.com/api/crear/persona/',
         type: 'POST',
         data: {
           'tipo': $('#tipo').val(),

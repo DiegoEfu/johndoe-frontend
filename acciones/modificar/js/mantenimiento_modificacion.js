@@ -4,7 +4,7 @@ const modificar = localStorage.getItem('modificar');
 
 $(document).ready(() => {
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/consultar/vehiculos/',
+        url: 'https://inverdata.pythonanywhere.com/api/consultar/vehiculos/',
         type: 'GET',
         success: function ({res}, textStatus, xhr) {
             vehiculos_registrados = res;
@@ -18,7 +18,7 @@ $(document).ready(() => {
 
 $(document).ready(() => {
   $.ajax({
-      url: 'http://127.0.0.1:8000/api/consultar/mantenimientos/',
+      url: 'https://inverdata.pythonanywhere.com/api/consultar/mantenimientos/',
       type: 'GET',
       success: function ({res}, textStatus, xhr) {
           mantenimientos_registrados = res;
@@ -58,7 +58,7 @@ $('form').submit((e) => {
 
   $(document).ready(() => {
     $.ajax({
-        url: `http://127.0.0.1:8000/api/modificar/mantenimiento/${modificar}/`,
+        url: `https://inverdata.pythonanywhere.com/api/modificar/mantenimiento/${modificar}/`,
         type: 'POST',
         data: {
           'vehiculo': $('#placa').val(),
@@ -77,6 +77,6 @@ $('form').submit((e) => {
     });
   });
 
-  alert("Creado exitosamente.")
+  alert("Modificado exitosamente.")
   window.location.replace("/");
 });

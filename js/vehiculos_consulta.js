@@ -3,7 +3,7 @@ $(document).ready(() => {
     let vehiculos = undefined;
 
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/consultar/personas/',
+        url: 'https://inverdata.pythonanywhere.com/api/consultar/personas/',
         type: 'GET',
         success: function ({res}, textStatus, xhr) {
             personas = res;
@@ -15,7 +15,7 @@ $(document).ready(() => {
     });
 
     $.ajax({
-      url: 'http://127.0.0.1:8000/api/consultar/vehiculos/',
+      url: 'https://inverdata.pythonanywhere.com/api/consultar/vehiculos/',
       type: 'GET',
       success: function ({res}, textStatus, xhr) {
           vehiculos = res;
@@ -59,7 +59,7 @@ $(document).ready(() => {
           $('#eliminar_${actual.id}').click((e) => {
             e.preventDefault();
             $.ajax({
-              url: 'http://127.0.0.1:8000/api/eliminar/vehiculo/${actual.id}/',
+              url: 'https://inverdata.pythonanywhere.com/api/eliminar/vehiculo/${actual.id}/',
               type: 'POST',
               success: function ({res}, textStatus, xhr) {
                   alert("Eliminado Exitosamente");

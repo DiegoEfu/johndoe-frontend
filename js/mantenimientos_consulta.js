@@ -3,7 +3,7 @@ $(document).ready(() => {
     let vehiculos = undefined;
 
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/consultar/mantenimientos/',
+        url: 'https://inverdata.pythonanywhere.com/api/consultar/mantenimientos/',
         type: 'GET',
         success: function ({res}, textStatus, xhr) {
             mantenimientos = res;
@@ -15,7 +15,7 @@ $(document).ready(() => {
     });
 
     $.ajax({
-      url: 'http://127.0.0.1:8000/api/consultar/vehiculos/',
+      url: 'https://inverdata.pythonanywhere.com/api/consultar/vehiculos/',
       type: 'GET',
       success: function ({res}, textStatus, xhr) {
           vehiculos = res;
@@ -61,7 +61,7 @@ $(document).ready(() => {
             e.preventDefault();
             console.log("A");
             $.ajax({
-              url: 'http://127.0.0.1:8000/api/eliminar/mantenimiento/${actual.id}/',
+              url: 'https://inverdata.pythonanywhere.com/api/eliminar/mantenimiento/${actual.id}/',
               type: 'POST',
               success: function ({res}, textStatus, xhr) {
                   alert("Eliminado Exitosamente");

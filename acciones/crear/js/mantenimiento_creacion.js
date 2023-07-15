@@ -2,7 +2,7 @@ let vehiculos_registrados;
 
 $(document).ready(() => {
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/consultar/vehiculos/',
+        url: 'https://inverdata.pythonanywhere.com/api/consultar/vehiculos/',
         type: 'GET',
         success: function ({res}, textStatus, xhr) {
             vehiculos_registrados = res;
@@ -21,16 +21,20 @@ const consigue_vehiculo = (placa) => {
 $('form').submit((e) => {
   e.preventDefault();
 
-  if(!consigue_vehiculo($('#placa').val().toUpperCase())){
+  if(vehiculos_registrados && !consigue_vehiculo($('#placa').val().toUpperCase())){
     alert("No hay ningún vehículo con la placa introducida registrado.");
     return false;
+  } else if(!vehiculos_registrados){
+    alert("NO HAY VEHÍCULOS REGISTRADOS.");
+    return false;
   }
+  
   if(new Date() > new Date($('#fecha').val()))
     alert("La fecha introducida no puede ser menor a la presente. Verifique fecha y hora.");
 
   $(document).ready(() => {
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/crear/mantenimiento/',
+        url: 'https://inverdata.pythonanywhere.com/api/crear/mantenimiento/',
         type: 'POST',
         data: {
           'vehiculo': $('#placa').val(),

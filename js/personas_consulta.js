@@ -1,6 +1,6 @@
 $(document).ready(() => {
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/consultar/personas/',
+        url: 'https://inverdata.pythonanywhere.com/api/consultar/personas/',
         type: 'GET',
         success: function ({res}, textStatus, xhr) {
             const datos = res;
@@ -27,7 +27,7 @@ $(document).ready(() => {
                   $('#eliminar_${actual.id}').click((e) => {
                     e.preventDefault();
                     $.ajax({
-                      url: 'http://127.0.0.1:8000/api/eliminar/persona/${actual.id}/',
+                      url: 'https://inverdata.pythonanywhere.com/api/eliminar/persona/${actual.id}/',
                       type: 'POST',
                       success: function ({res}, textStatus, xhr) {
                           alert("Eliminado Exitosamente");
