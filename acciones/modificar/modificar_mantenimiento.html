@@ -53,7 +53,19 @@
                 <input name="fecha" id="fecha" type="datetime-local" class="form-control" required>
             </div>
 
-            <div class="col-6"></div>
+            <div class="col-6">
+              <label for="estado">Estado:</label>
+                <select name="estado" id="estado" class="form-control">
+                    <option value="P">Pendiente</option>
+                    <option value="F">Finalizado</option>
+                    <option value="C">Cancelado</option>
+                </select>              
+            </div>
+
+            <div class="col-12">
+              <label for="resultados">Resultados:</label>
+                <textarea name="resultados" id="resultados" cols="30" rows="10" class="form-control"></textarea>            
+            </div>
 
             <div class="col-12 d-flex justify-content-center mt-3">
                 <button type="submit" class="btn btn-success">Enviar Formulario</button>
@@ -61,6 +73,6 @@
         </form>
     </main>
 
-    <script type="module" src="js/mantenimiento_creacion.js"></script>
+    <script type="module" src="js/mantenimiento_modificacion.js"></script>
 </body>
 </html>

@@ -47,8 +47,16 @@ $(document).ready(() => {
           <td>${actual.tipo == 'P' ? 'Preventivo' : 'Correctivo'}</td>
           <td>${actual.estado == 'P' ? 'Pendiente' : actual.estado == 'F' ? 'Finalizado' : 'Cancelado'}</td>
           <td>${actual.resultados ? actual.resultados : ''}</td>
-          <td><a class="btn btn-success">Modificar</a>    <a class="btn btn-warning">Cancelar</a>     <a class="btn btn-danger">Eliminar</a></td>
-        </tr>      
+          <td><a id="modificar_${actual.id}" class="btn btn-success">Modificar</a>    <a class="btn btn-danger">Eliminar</a></td>
+        </tr>   
+
+        <script>
+          $('#modificar_${actual.id}').click((e) => {
+            e.preventDefault();
+            localStorage.setItem('modificar', ${actual.id});
+            window.location.replace("/acciones/modificar/modificar_mantenimiento.html");
+          });
+        </script>      
       `);
     }
 

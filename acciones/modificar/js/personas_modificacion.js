@@ -1,4 +1,5 @@
 let personas_registradas;
+const modificar = localStorage.getItem('modificar');
 
 $(document).ready(() => {
     $.ajax({
@@ -10,30 +11,29 @@ $(document).ready(() => {
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr);
         },
-        async: true
+        async: false
     });
+
+    for(let i = 0; i < personas_registradas.length; i++)
+      if(personas_registradas[i].id == modificar){
+        let actual = personas_registradas[i];
+        $('#tipo').val(actual.tipo);
+        $('#cedula').val(actual.cedula);
+        $('#nombre').val(actual.nombre);
+        $('#apellido').val(actual.apellido);
+        $('#genero').val(actual.genero);
+      }
 });
 
-const consigue_persona = (tipo, cedula) => {
-  console.log(personas_registradas);
-  return personas_registradas.some((p) => p.tipo === tipo && p.cedula === cedula);
-};
 
 $('form').submit((e) => {
   e.preventDefault();
 
-  if(consigue_persona($('#tipo').val(), $('#cedula').val())){
-    alert("Ya existe una persona registrada con esa cédula.");
-    return false;
-  }
-
   $(document).ready(() => {
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/crear/persona/',
+        url: `http://127.0.0.1:8000/api/modificar/persona/${modificar}/`,
         type: 'POST',
         data: {
-          'tipo': $('#tipo').val(),
-          'cedula': $('#cedula').val(),
           'genero': $('#genero').val(),
           'nombre': $('#nombre').val(),
           'apellido': $('#apellido').val(),
@@ -48,6 +48,6 @@ $('form').submit((e) => {
     });
   });
 
-  alert("Creado exitosamente.")
+  alert("Modificado exitosamente.")
   window.location.replace("/");
 });

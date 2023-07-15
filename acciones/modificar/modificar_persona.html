@@ -39,7 +39,7 @@
             <div class="col-8 row">
                 <div class="col-4">
                     <label for="cedula">Tipo:</label>
-                    <select name="tipo" id="tipo" class="form-control">
+                    <select disabled name="tipo" id="tipo" class="form-control">
                         <option value="V">V</option>
                         <option value="E">E</option>
                         <option value="J">J</option>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-8">
                     <label for="cedula">Identificación:</label>
-                    <input id="cedula" name="cedula" class="form-control" type="text" maxlength="9" required pattern="[0-9]+" placeholder="Ej: 29714067">
+                    <input disabled id="cedula" name="cedula" class="form-control" type="text" maxlength="9" pattern="[0-9]+" placeholder="Ej: 29714067">
                 </div>
             </div>
             <div class="col-4">
@@ -74,6 +74,6 @@
         </form>
     </main>
 
-    <script type="module" src="js/personas_creacion.js"></script>
+    <script type="module" src="js/personas_modificacion.js"></script>
 </body>
 </html>

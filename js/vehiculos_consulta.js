@@ -46,12 +46,12 @@ $(document).ready(() => {
           <td>${actual.modelo.toUpperCase()}</td>
           <td>${actual.color.toUpperCase()}</td>
           <td><a id="modificar_${actual.id}" class="btn btn-success">Modificar</a>    <a class="btn btn-danger">Eliminar</a></td>
-        </tr>
+        </tr>   
+
         <script>
           $('#modificar_${actual.id}').click((e) => {
             e.preventDefault();
             localStorage.setItem('modificar', ${actual.id});
-            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             window.location.replace("/acciones/modificar/modificar_vehiculo.html");
           });
         </script>
