@@ -46,7 +46,7 @@ $('form').submit((e) => {
         },
         async: true
     });
-});
+  });
 
   window.location.replace("/");
-})
+});
