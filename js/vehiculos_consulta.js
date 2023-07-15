@@ -45,8 +45,16 @@ $(document).ready(() => {
           <td>${actual.marca.toUpperCase()}</td>
           <td>${actual.modelo.toUpperCase()}</td>
           <td>${actual.color.toUpperCase()}</td>
-          <td><a class="btn btn-success">Modificar</a>    <a class="btn btn-danger">Eliminar</a></td>
-        </tr>      
+          <td><a id="modificar_${actual.id}" class="btn btn-success">Modificar</a>    <a class="btn btn-danger">Eliminar</a></td>
+        </tr>
+        <script>
+          $('#modificar_${actual.id}').click((e) => {
+            e.preventDefault();
+            localStorage.setItem('modificar', ${actual.id});
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            window.location.replace("/acciones/modificar/modificar_vehiculo.html");
+          });
+        </script>
       `);
     }
 

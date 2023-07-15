@@ -44,7 +44,7 @@ $('form').submit((e) => {
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr);
         },
-        async: true
+        async: false
     });
   });
 

@@ -34,11 +34,11 @@
     </nav>
 
     <main class="container">
-        <h1 class="text-center">Registro de Vehículo</h1>
+        <h1 class="text-center">Registro de Persona</h1>
         <form class="row">
             <div class="col-8 row">
                 <div class="col-4">
-                    <label for="cedula">Tipo del Dueño:</label>
+                    <label for="cedula">Tipo:</label>
                     <select name="tipo" id="tipo" class="form-control">
                         <option value="V">V</option>
                         <option value="E">E</option>
@@ -47,47 +47,25 @@
                     </select>
                 </div>
                 <div class="col-8">
-                    <label for="cedula">Identificación del Dueño:</label>
+                    <label for="cedula">Identificación:</label>
                     <input id="cedula" name="cedula" class="form-control" type="text" maxlength="9" required pattern="[0-9]+" placeholder="Ej: 29714067">
                 </div>
             </div>
             <div class="col-4">
-                <label for="placa">Placa del Vehículo:</label>
-                <input required id="placa" name="placa" class="form-control" type="text" minlength="7" maxlength="7" placeholder="Ej: XYZ12B">
+                <label for="genero">Género:</label>
+                <select name="genero" id="genero" class="form-control">
+                    <option value="H">Hombre</option>
+                    <option value="M">Mujer</option>
+                </select>
             </div>  
             
-            <div class="col-4">
-                <label for="marca">Marca: </label>
-                <input id="marca" name="marca" class="form-control" type="text" maxlength="50" required pattern="[a-zA-ZñÑáéíóúAÉÍÓÚ ]+" placeholder="Ej: Chevrolet">
+            <div class="col-6">
+                <label for="nombre">Nombres: </label>
+                <input id="nombre" name="nombre" class="form-control" type="text" maxlength="50" required pattern="[a-zA-ZñÑáéíóúAEIOU ]+" placeholder="Ej: Juan Andrés">
             </div>
-            <div class="col-4">
-                <label for="modelo">Modelo: </label>
-                <input id="modelo" name="modelo" class="form-control" type="text" maxlength="50" required pattern="[a-zA-ZñÑáéíóúAÉÍÓÚ ]+" placeholder="Ej: Optra">
-            </div>
-            <div class="col-4">
-                <label for="col">Color: </label>
-                <select name="color" id="color" class="form-control">
-                    <option value="AMARILLO">AMARILLO</option>
-                    <option value="ANARANJADO">ANARANJADO</option>
-                    <option value="AZUL">AZUL</option>
-                    <option value="BEIGE">BEIGE</option>
-                    <option value="BLANCO">BLANCO</option>
-                    <option value="CELESTE">CELESTE</option>
-                    <option value="CREMA">CREMA</option>
-                    <option value="DORADO">DORADO</option>
-                    <option value="FUCSIA">FUCSIA</option>
-                    <option value="GRIS">GRIS</option>
-                    <option value="MORADO">MORADO</option>
-                    <option value="MARRÓN">MARRÓN</option>
-                    <option value="NEGRO">NEGRO</option>
-                    <option value="PLATA">PLATA</option>
-                    <option value="ROJO">ROJO</option>
-                    <option value="ROSADO">ROSADO</option>
-                    <option value="SALMÓN">SALMÓN</option>
-                    <option value="TURQUESA">TURQUESA</option>
-                    <option value="VERDE">VERDE</option>
-                    <option value="VIOLETA">VIOLETA</option>
-                </select>
+            <div class="col-6">
+                <label for="apellido">Apellidos: </label>
+                <input id="apellido" name="apellido" class="form-control" type="text" maxlength="50" required pattern="[a-zA-ZñÑáéíóúAEIOU ]+" placeholder="Ej: González Martínez">
             </div>
 
             <div class="col-12 d-flex justify-content-center mt-3">
@@ -96,6 +74,6 @@
         </form>
     </main>
 
-    <script type="module" src="js/vehiculos_creacion.js"></script>
+    <script type="module" src="js/personas_creacion.js"></script>
 </body>
 </html>

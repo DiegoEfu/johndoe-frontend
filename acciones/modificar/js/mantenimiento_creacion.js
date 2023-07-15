@@ -43,7 +43,7 @@ $('form').submit((e) => {
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr);
         },
-        async: false
+        async: true
     });
   });
 
