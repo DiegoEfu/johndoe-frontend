@@ -45,8 +45,8 @@ $(document).ready(() => {
           <td>${actual.marca.toUpperCase()}</td>
           <td>${actual.modelo.toUpperCase()}</td>
           <td>${actual.color.toUpperCase()}</td>
-          <td><a id="modificar_${actual.id}" class="btn btn-success">Modificar</a>    
-          <a id="eliminar_${actual.id}" class="btn btn-danger">Eliminar</a></td>
+          <td><a id="modificar_${actual.id}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>    
+          <a id="eliminar_${actual.id}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
         </tr>   
 
         <script>

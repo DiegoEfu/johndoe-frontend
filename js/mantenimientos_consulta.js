@@ -47,7 +47,7 @@ $(document).ready(() => {
           <td>${actual.tipo == 'P' ? 'Preventivo' : 'Correctivo'}</td>
           <td>${actual.estado == 'P' ? 'Pendiente' : actual.estado == 'F' ? 'Finalizado' : 'Cancelado'}</td>
           <td>${actual.resultados ? actual.resultados : ''}</td>
-          <td><a id="modificar_${actual.id}" class="btn btn-success">Modificar</a>    <a id="eliminar_${actual.id}" class="btn btn-danger">Eliminar</a></td>
+          <td><a id="modificar_${actual.id}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>    <a id="eliminar_${actual.id}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
         </tr>   
 
         <script>

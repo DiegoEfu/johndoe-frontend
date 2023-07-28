@@ -13,8 +13,8 @@ $(document).ready(() => {
                   <td>${actual.nombre.toUpperCase()}</td>
                   <td>${actual.apellido.toUpperCase()}</td>
                   <td>${actual.genero === 'H' ? 'Hombre' : 'Mujer'}</td>
-                  <td><a id="modificar_${actual.id}" class="btn btn-success">Modificar</a>    
-                  <a id="eliminar_${actual.id}" class="btn btn-danger">Eliminar</a></td>
+                  <td><a id="modificar_${actual.id}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>    
+                  <a id="eliminar_${actual.id}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
                 </tr>   
 
                 <script>
